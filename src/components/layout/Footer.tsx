@@ -1,7 +1,7 @@
 import React from "react";
 import { Logo } from "./Logo";
 
-export const Footer = () => {
+export const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   return (
     <footer className="bg-black text-white py-12 border-t border-gray-900">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
@@ -15,6 +15,14 @@ export const Footer = () => {
         <div className="flex gap-8">
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy</a>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Terms</a>
+            {onNavigate && (
+              <button 
+                onClick={() => onNavigate("/brand")} 
+                className="text-sm text-gray-400 hover:text-white transition-colors"
+              >
+                Brand Kit
+              </button>
+            )}
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">Twitter</a>
             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors">LinkedIn</a>
         </div>

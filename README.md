@@ -1,7 +1,7 @@
 
-  # Website Redesign for Dobeu Tech
+  # app.dobeu.net-newdesign
 
-  This is a code bundle for Website Redesign for Dobeu Tech. The original project is available at https://www.figma.com/design/17GGzDSqd3o40wuKayyZiy/Website-Redesign-for-Dobeu-Tech.
+  This is a code bundle for app.dobeu.net-newdesign. The original project is available at https://www.figma.com/design/17GGzDSqd3o40wuKayyZiy/app.dobeu.net-newdesign.
 
   ## Running the code
 
