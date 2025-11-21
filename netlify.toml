@@ -1,0 +1,52 @@
+# Netlify Configuration for app.dobeu.cloud
+# Project: appsobeucloud
+
+[build]
+  # Build command to run
+  command = "npm run build"
+  
+  # Directory with the build output (matches vite.config.ts)
+  publish = "dist"
+  
+  # Set Node.js version
+  environment = { NODE_VERSION = "20" }
+
+# Redirect rules for SPA - all routes go to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Deploy settings
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true

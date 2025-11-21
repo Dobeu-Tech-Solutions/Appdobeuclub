@@ -33,3 +33,7 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Netlify
+.netlify/
+netlify-functions/
