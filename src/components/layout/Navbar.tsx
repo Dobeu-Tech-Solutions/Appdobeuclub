@@ -28,6 +28,10 @@ export const Navbar = () => {
     { name: "Pricing", href: "#pricing" },
   ];
 
+  const externalLinks = [
+    { name: "Design Services", href: "https://designs.dobeu.net", external: true },
+  ];
+
   return (
     <motion.header
       style={{ backgroundColor: `rgba(255,255,255,${bgOpacity.get()})`, backdropFilter: backdropBlur }}
@@ -47,6 +51,20 @@ export const Navbar = () => {
               className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
             >
               {link.name}
+            </a>
+          ))}
+          {externalLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              {link.name}
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
             </a>
           ))}
           <Button
@@ -81,6 +99,21 @@ export const Navbar = () => {
                 className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
               >
                 {link.name}
+              </a>
+            ))}
+            {externalLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2"
+              >
+                {link.name}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
             ))}
             <Button

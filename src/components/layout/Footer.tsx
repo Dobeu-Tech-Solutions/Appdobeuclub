@@ -12,9 +12,13 @@ export const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) 
           </p>
         </div>
 
-        <div className="flex gap-8">
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">Privacy</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">Terms</a>
+        <div className="flex flex-wrap gap-6 justify-center md:justify-end">
+            <a href="https://designs.dobeu.net" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium flex items-center gap-1">
+              Design Services
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
             {onNavigate && (
               <button
                 onClick={() => onNavigate("/brand")}
@@ -23,8 +27,10 @@ export const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) 
                 Brand Kit
               </button>
             )}
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">Twitter</a>
-            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">LinkedIn</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">Privacy</a>
+            <a href="#" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">Terms</a>
+            <a href="https://twitter.com/dobeutech" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">Twitter</a>
+            <a href="https://linkedin.com/company/dobeu" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-blue-600 transition-colors font-medium">LinkedIn</a>
         </div>
       </div>
     </footer>

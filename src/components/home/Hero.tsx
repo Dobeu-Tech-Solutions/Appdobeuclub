@@ -90,7 +90,7 @@ export const Hero = () => {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 leading-tight"
         >
           Technology <br/>
@@ -100,7 +100,7 @@ export const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-xl md:text-2xl text-gray-600 max-w-2xl mb-10 font-light"
         >
           Your IT consulting partner for cloud infrastructure, DevOps, and modern application development.
@@ -112,10 +112,14 @@ export const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-           <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 group shadow-lg shadow-blue-500/30">
+           <motion.button
+             whileHover={{ scale: 1.05 }}
+             whileTap={{ scale: 0.95 }}
+             className="bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 group shadow-lg shadow-blue-500/30"
+           >
               Start your journey
               <ArrowDown className="group-hover:translate-y-1 transition-transform" size={20} />
-           </button>
+           </motion.button>
         </motion.div>
       </motion.div>
     </div>

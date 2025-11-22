@@ -52,9 +52,10 @@ export const Mission = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-8 bg-gradient-to-br from-white to-blue-50 rounded-3xl hover:shadow-lg transition-all duration-300 border-2 border-blue-100 hover:border-blue-300 hover:-translate-y-1"
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="p-8 bg-gradient-to-br from-white to-blue-50 rounded-3xl hover:shadow-xl transition-all duration-300 border-2 border-blue-100 hover:border-blue-300"
             >
               {point.icon}
               <h3 className="text-2xl font-bold mb-3">{point.title}</h3>

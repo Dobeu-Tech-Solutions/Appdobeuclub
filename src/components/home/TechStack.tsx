@@ -50,9 +50,14 @@ export const TechStack = () => {
               key={tech.name}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                delay: index * 0.05,
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              whileHover={{ scale: 1.1, y: -8, rotate: 5 }}
+              whileTap={{ scale: 0.95 }}
               className={`bg-gradient-to-br ${tech.color} p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group`}
             >
               <div className="text-center">
