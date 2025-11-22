@@ -8,9 +8,18 @@ import { Work } from "./components/home/Work";
 import { Pricing } from "./components/home/Pricing";
 import { Footer } from "./components/layout/Footer";
 import { BrandKit } from "./components/brand/BrandKit";
+import { useIntercom } from "./hooks/useIntercom";
+import type { IntercomUser } from "./types/intercom";
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  
+  // TODO: Replace with actual user authentication state
+  // Example: const user = useAuth(); or get from your auth context
+  const user: IntercomUser | null = null; // Set to null for unauthenticated users
+  
+  // Initialize Intercom with user data
+  useIntercom(user);
 
   useEffect(() => {
     const handlePopState = () => setCurrentPath(window.location.pathname);
