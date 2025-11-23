@@ -61,6 +61,8 @@ export const Navbar = () => {
         <button
           className="md:hidden relative z-50 text-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

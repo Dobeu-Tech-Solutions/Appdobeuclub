@@ -53,44 +53,34 @@ describe('Navbar Component - UI/UX Tests', () => {
 
   describe('Mobile Menu', () => {
     it('should render mobile menu toggle button', () => {
-      const menuButton = screen.getByRole('button', { name: '' });
+      const menuButton = screen.getByRole('button', { name: /Toggle navigation menu/i });
       expect(menuButton).toBeInTheDocument();
     });
 
     it('should toggle mobile menu on button click', async () => {
       const user = userEvent.setup();
-      const menuButtons = screen.getAllByRole('button');
-      const mobileToggle = menuButtons.find(btn => 
-        btn.querySelector('svg') && !btn.textContent?.includes('Get Started')
-      );
+      const mobileToggle = screen.getByRole('button', { name: /Toggle navigation menu/i });
 
-      if (mobileToggle) {
-        await user.click(mobileToggle);
-        await waitFor(() => {
-          // Mobile menu should be visible
-          const mobileLinks = screen.getAllByRole('link', { name: 'Mission' });
-          expect(mobileLinks.length).toBeGreaterThan(1);
-        });
-      }
+      await user.click(mobileToggle);
+      await waitFor(() => {
+        // Mobile menu should be visible
+        const mobileLinks = screen.getAllByRole('link', { name: 'Mission' });
+        expect(mobileLinks.length).toBeGreaterThan(1);
+      });
     });
 
     it('should close mobile menu when link is clicked', async () => {
       const user = userEvent.setup();
-      const menuButtons = screen.getAllByRole('button');
-      const mobileToggle = menuButtons.find(btn => 
-        btn.querySelector('svg') && !btn.textContent?.includes('Get Started')
-      );
+      const mobileToggle = screen.getByRole('button', { name: /Toggle navigation menu/i });
 
-      if (mobileToggle) {
-        await user.click(mobileToggle);
-        
-        await waitFor(() => {
-          const mobileLinks = screen.getAllByRole('link', { name: 'Mission' });
-          if (mobileLinks.length > 1) {
-            fireEvent.click(mobileLinks[1]);
-          }
-        });
-      }
+      await user.click(mobileToggle);
+      
+      await waitFor(async () => {
+        const mobileLinks = screen.getAllByRole('link', { name: 'Mission' });
+        if (mobileLinks.length > 1) {
+          await user.click(mobileLinks[1]);
+        }
+      });
     });
   });
 
@@ -101,10 +91,7 @@ describe('Navbar Component - UI/UX Tests', () => {
     });
 
     it('should show mobile toggle only on mobile', () => {
-      const menuButtons = screen.getAllByRole('button');
-      const mobileToggle = menuButtons.find(btn => 
-        btn.querySelector('svg') && !btn.textContent?.includes('Get Started')
-      );
+      const mobileToggle = screen.getByRole('button', { name: /Toggle navigation menu/i });
       expect(mobileToggle).toHaveClass('md:hidden');
     });
   });
@@ -171,11 +158,8 @@ describe('Navbar Component - UI/UX Tests', () => {
 
   describe('Visual Feedback', () => {
     it('should show menu icon when closed', () => {
-      const menuButtons = screen.getAllByRole('button');
-      const mobileToggle = menuButtons.find(btn => 
-        btn.querySelector('svg') && !btn.textContent?.includes('Get Started')
-      );
-      expect(mobileToggle?.querySelector('svg')).toBeInTheDocument();
+      const mobileToggle = screen.getByRole('button', { name: /Toggle navigation menu/i });
+      expect(mobileToggle.querySelector('svg')).toBeInTheDocument();
     });
 
     it('should have backdrop blur effect', () => {

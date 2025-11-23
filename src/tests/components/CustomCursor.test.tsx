@@ -3,11 +3,10 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { CustomCursor } from '../../components/ui/CustomCursor';
 
 describe('CustomCursor Component - UI/UX Tests', () => {
-  beforeEach(() => {
-    render(<CustomCursor />);
-  });
-
   describe('Visual Elements', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
     it('should render cursor dot element', () => {
       const cursorDot = document.querySelector('.cursor-dot');
       expect(cursorDot).toBeInTheDocument();
@@ -26,6 +25,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('Cursor Behavior', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should update cursor position on mouse move', async () => {
       const cursorDot = document.querySelector('.cursor-dot');
       
@@ -48,6 +51,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('Click Interaction', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should add clicking class on mousedown', () => {
       fireEvent.mouseDown(window);
       expect(document.body.classList.contains('cursor-clicking')).toBe(true);
@@ -67,6 +74,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('Visual Design', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should have circular cursor', () => {
       const style = document.querySelector('style');
       expect(style?.textContent).toContain('border-radius: 50%');
@@ -89,6 +100,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('Accessibility', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should not interfere with pointer events', () => {
       const style = document.querySelector('style');
       expect(style?.textContent).toContain('pointer-events: none');
@@ -102,13 +117,15 @@ describe('CustomCursor Component - UI/UX Tests', () => {
 
   describe('Performance', () => {
     it('should use spring animation for smooth movement', () => {
+      render(<CustomCursor />);
       const cursorDot = document.querySelector('.cursor-dot');
       expect(cursorDot).toBeInTheDocument();
     });
 
     it('should clean up event listeners', () => {
-      const { unmount } = render(<CustomCursor />);
+      // This test doesn't use beforeEach to avoid double-rendering
       const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener');
+      const { unmount } = render(<CustomCursor />);
       
       unmount();
       
@@ -119,6 +136,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('User Experience', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should provide visual feedback on interaction', () => {
       const style = document.querySelector('style');
       expect(style?.textContent).toContain('transform: scale(0.8)');
@@ -137,6 +158,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('Cross-browser Compatibility', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should handle missing mouse events gracefully', () => {
       const cursorDot = document.querySelector('.cursor-dot');
       expect(cursorDot).toBeInTheDocument();
@@ -149,6 +174,10 @@ describe('CustomCursor Component - UI/UX Tests', () => {
   });
 
   describe('Visual Consistency', () => {
+    beforeEach(() => {
+      render(<CustomCursor />);
+    });
+
     it('should have consistent size', () => {
       const style = document.querySelector('style');
       expect(style?.textContent).toContain('width: 20px');
