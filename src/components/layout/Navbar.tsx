@@ -28,10 +28,14 @@ export const Navbar = () => {
     { name: "Pricing", href: "#pricing" },
   ];
 
+  const externalLinks = [
+    { name: "Design Services", href: "https://designs.dobeu.net", external: true },
+  ];
+
   return (
     <motion.header
-      style={{ backgroundColor: `rgba(0,0,0,${bgOpacity.get()})`, backdropFilter: backdropBlur }}
-      className="fixed top-0 left-0 right-0 z-40 px-6 py-4 md:px-12 transition-all duration-300"
+      style={{ backgroundColor: `rgba(255,255,255,${bgOpacity.get()})`, backdropFilter: backdropBlur }}
+      className="fixed top-0 left-0 right-0 z-40 px-6 py-4 md:px-12 transition-all duration-300 border-b border-gray-200/50"
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <a href="#" className="relative z-50">
@@ -44,14 +48,28 @@ export const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
             >
               {link.name}
             </a>
           ))}
-          <Button 
-            variant="default" 
-            className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-full px-6"
+          {externalLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors flex items-center gap-1"
+            >
+              {link.name}
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          ))}
+          <Button
+            variant="default"
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-full px-6 shadow-md shadow-blue-500/30"
           >
             Get Started
           </Button>
@@ -59,7 +77,7 @@ export const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden relative z-50 text-white"
+          className="md:hidden relative z-50 text-gray-900"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,21 +89,36 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-0 left-0 w-full h-screen bg-black flex flex-col items-center justify-center gap-8 md:hidden"
+            className="absolute top-0 left-0 w-full h-screen bg-gradient-to-br from-white to-blue-50 flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-2xl font-bold text-white hover:text-yellow-500 transition-colors"
+                className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors"
               >
                 {link.name}
               </a>
             ))}
-            <Button 
-              variant="default" 
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-full px-8 py-6 text-lg mt-4"
+            {externalLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-2"
+              >
+                {link.name}
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            ))}
+            <Button
+              variant="default"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-full px-8 py-6 text-lg mt-4 shadow-lg shadow-blue-500/30"
             >
               Get Started
             </Button>

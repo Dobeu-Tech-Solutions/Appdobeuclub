@@ -4,6 +4,7 @@ import { Navbar } from "./components/layout/Navbar";
 import { Hero } from "./components/home/Hero";
 import { Mission } from "./components/home/Mission";
 import { Services } from "./components/home/Services";
+import { TechStack } from "./components/home/TechStack";
 import { Work } from "./components/home/Work";
 import { Pricing } from "./components/home/Pricing";
 import { Footer } from "./components/layout/Footer";
@@ -37,7 +38,7 @@ function App() {
   const isBrandKit = currentPath === "/brand";
 
   return (
-    <div className="bg-black min-h-screen selection:bg-yellow-400 selection:text-black font-sans">
+    <div className="bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 min-h-screen selection:bg-blue-400 selection:text-white font-sans">
       <CustomCursor />
       
       {isBrandKit ? (
@@ -59,6 +60,7 @@ function App() {
             <Hero />
             <Mission />
             <Services />
+            <TechStack />
             <Work />
             <Pricing />
           </main>

@@ -31,8 +31,8 @@ export const Pricing = () => {
                 </div>
 
                 <div className="mb-8">
-                    <h3 className="text-2xl font-bold mb-2">Standard Plan</h3>
-                    <p className="text-gray-400">One request at a time. Pause or cancel anytime.</p>
+                    <h3 className="text-2xl font-bold mb-2">Tech Support Club</h3>
+                    <p className="text-gray-400">Unlimited tech requests. Pause or cancel anytime.</p>
                 </div>
 
                 <div className="flex items-baseline mb-8">
@@ -40,7 +40,7 @@ export const Pricing = () => {
                     <span className="text-xl text-gray-500 ml-2">/mo</span>
                 </div>
 
-                <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-lg h-14 rounded-xl mb-8">
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-lg h-14 rounded-xl mb-8 shadow-lg shadow-blue-500/30">
                     Get started today
                 </Button>
 
@@ -49,31 +49,31 @@ export const Pricing = () => {
                         <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                             <Check size={14} className="text-green-500" />
                         </div>
-                        <span>One request at a time</span>
+                        <span>Unlimited tech requests</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                             <Check size={14} className="text-green-500" />
                         </div>
-                        <span>Average 48 hour delivery</span>
+                        <span>Average 48 hour turnaround</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                             <Check size={14} className="text-green-500" />
                         </div>
-                        <span>Unlimited users</span>
+                        <span>Cloud infrastructure & DevOps</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                             <Check size={14} className="text-green-500" />
                         </div>
-                        <span>Unlimited stock photos</span>
+                        <span>Security & compliance audits</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
                             <Check size={14} className="text-green-500" />
                         </div>
-                        <span>Easy credit-card payments</span>
+                        <span>Full-stack development support</span>
                     </div>
                     <div className="flex items-center gap-3">
                         <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
